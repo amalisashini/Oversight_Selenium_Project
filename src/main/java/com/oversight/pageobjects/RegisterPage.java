@@ -1,12 +1,10 @@
 package com.oversight.pageobjects;
 
-import com.github.javafaker.Faker;
 import com.oversight.actiondriver.Action;
 import com.oversight.base.BaseClass;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.BeforeTest;
 
 public class RegisterPage extends BaseClass {
 
