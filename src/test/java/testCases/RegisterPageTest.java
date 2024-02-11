@@ -51,6 +51,7 @@ public class RegisterPageTest extends BaseClass {
         );
         boolean headerText = verifyMobileNumberPage.verifyHeaderText();
         Assert.assertTrue(headerText);
+        loginPage = verifyMobileNumberPage.cancelAccount();
 
     }
 

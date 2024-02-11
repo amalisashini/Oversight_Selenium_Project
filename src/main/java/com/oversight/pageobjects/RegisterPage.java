@@ -60,7 +60,6 @@ public class RegisterPage extends BaseClass {
         action.JSClick(driver, termsAndConditionsBtn);
         action.scrollByVisibilityOfElement(driver, signUpButton);
         action.JSClick(driver, signUpButton);
-
         return new VerifyMobileNumberPage();
     }
 

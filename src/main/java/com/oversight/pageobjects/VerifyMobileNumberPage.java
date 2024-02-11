@@ -15,12 +15,26 @@ public class VerifyMobileNumberPage extends BaseClass {
 
     }
 
-    @FindBy(xpath="//div[contains(text(),'Verify Mobile Number')]")
+    @FindBy(xpath="//div[contains(text(),'User Registration Successfully')]")
     WebElement verifyMobileHeaderText;
+
+    @FindBy(xpath="//div[@class='text-decoration-underline cursor-pointer text-center col']")
+    WebElement cancelAccountCreation;
+
+    @FindBy(xpath="//div[contains(text(),'Yes')]")
+    WebElement yesBtn;
 
     public Boolean verifyHeaderText(){
 
         return action.isDisplayed(driver, verifyMobileHeaderText);
+
+    }
+
+    public LoginPage cancelAccount(){
+
+        action.JSClick(driver, cancelAccountCreation);
+        action.JSClick(driver, yesBtn);
+        return new LoginPage();
 
     }
 
