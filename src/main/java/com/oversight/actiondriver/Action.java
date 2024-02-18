@@ -60,6 +60,11 @@ public class Action extends BaseClass implements ActionInterface {
 
     }
 
+    public void clearTextField(WebDriver driver, By locator) {
+        WebElement textField = driver.findElement(locator);
+        textField.clear();
+    }
+
     @Override
     public boolean findElement(WebDriver driver, WebElement ele) {
         boolean flag = false;

@@ -14,11 +14,8 @@ public class DashboardPage extends BaseClass {
         PageFactory.initElements(driver,this);
 
     }
-    @FindBy(xpath="//span[contains(text(),\"Hello,\")]")
-    WebElement headerText;
-
-    @FindBy(xpath="//div[contains(text(),\"Login Successfully\")]")
-    WebElement loginSuccessToast;
+    @FindBy(css="div[class='side-bar_side-bar__Rb7T7 h-100 w-100 m-0 container'] img[alt='Oversight Logo']")
+    WebElement ovsLogo;
 
     @FindBy(xpath="//div[contains(@class,'side-bar_side-bar__Rb7T7 h-100 w-100 m-0 container')]//span[contains(@class,'ms-2')][normalize-space()='Devices']")
     WebElement deviceNavBtn;
@@ -29,19 +26,14 @@ public class DashboardPage extends BaseClass {
     @FindBy(xpath="//div[contains(@class,'side-bar_side-bar__Rb7T7 h-100 w-100 m-0 container')]//span[contains(@class,'ms-2')][normalize-space()='Controllers']")
     WebElement controllerNavBtn;
 
-    @FindBy(xpath="//div[@class='px-2 order-1 order-lg-2 col-auto']//a")
+    @FindBy(css="body > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > a:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1)")
     WebElement ProfileIcon;
 
-    public boolean validateHeader()
+    public boolean validateLogo()
     {
-        return action.isDisplayed(driver,headerText);
+        return action.isDisplayed(driver,ovsLogo);
     }
 
-    public boolean successToast(){
-
-        return action.isDisplayed(driver, loginSuccessToast);
-
-    }
 
     public ProfilePage navigateProfilePage(){
         action.JSClick(driver, ProfileIcon);

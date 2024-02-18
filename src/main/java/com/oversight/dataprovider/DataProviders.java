@@ -50,6 +50,21 @@ public class DataProviders {
         return getMapDataSheet("device");
     }
 
+    @DataProvider(name = "editPasswordDetails")
+    public Object[][] getEditPasswordData() {
+        return getDataFromSheet("password");
+    }
+
+    @DataProvider(name = "changeEmailDetails")
+    public Object[][] getChangeEmailData() {
+        return getDataFromSheet("email");
+    }
+
+    @DataProvider(name = "changeExistEmailDetails")
+    public Object[][] getExistChangeEmailData() {
+        return getDataFromSheet("existEmail");
+    }
+
     public Object[][] getDataFromSheet(String SheetName){
 
         int rows = obj.getRowCount(SheetName);

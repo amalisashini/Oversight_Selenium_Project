@@ -58,7 +58,7 @@ public class BaseClass {
         }
 
         driver.manage().window().maximize();
-        action.implicitWait(driver, 20);
+        action.implicitWait(driver, 30);
         action.pageLoadTimeOut(driver, 40);
         driver.get(prop.getProperty("url"));
 

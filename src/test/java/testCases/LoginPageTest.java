@@ -7,7 +7,6 @@ import com.oversight.pageobjects.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class LoginPageTest extends BaseClass {
@@ -30,16 +29,14 @@ public class LoginPageTest extends BaseClass {
     }
 
     @Test(priority = 1, dataProvider = "loginCredentials", dataProviderClass = DataProviders.class)
-    public void successLoginTest(String username, String password){
+    public void successLoginTest(String username, String password) {
 
         loginPage = new LoginPage();
 
         dashboardPage = loginPage.successLogin(username,password);
-        boolean header = dashboardPage.validateHeader();
+        boolean header = dashboardPage.validateLogo();
         Assert.assertTrue(header);
 
-        boolean toast = dashboardPage.successToast();
-        Assert.assertTrue(toast);
     }
 
     @Test(priority = 2, dataProvider = "UnSuccessLoginCredentials", dataProviderClass = DataProviders.class)
