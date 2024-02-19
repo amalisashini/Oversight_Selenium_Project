@@ -24,6 +24,9 @@ public class EmailChangePage extends BaseClass {
     @FindBy(xpath="//div[@class='error justify-content-center font-size-14 mt-2 text-center col']")
     WebElement existEmailValidation;
 
+    @FindBy(xpath="//span[@class='error']")
+    WebElement emailValidation;
+
     public ProfilePage changeEmail(String emailFld){
 
        action.type(emailField, emailFld);
@@ -32,7 +35,7 @@ public class EmailChangePage extends BaseClass {
 
     }
 
-    public EmailChangePage emailChangeWithExistingEmail(String emailFld){
+    public EmailChangePage emailChangeValidation(String emailFld){
 
         action.type(emailField, emailFld);
         action.JSClick(driver, confirmBtn);
@@ -43,6 +46,12 @@ public class EmailChangePage extends BaseClass {
     public boolean changeWithExistEmailValidation(){
 
         return action.isDisplayed(driver, existEmailValidation);
+
+    }
+
+    public boolean changeEmailValidation(){
+
+        return action.isDisplayed(driver, emailValidation);
 
     }
 

@@ -1,22 +1,11 @@
 package com.oversight.actiondriver;
 
-import java.io.File;
-import java.text.SimpleDateFormat;
-import java.time.Duration;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 
 import com.oversight.base.BaseClass;
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
 
 
 public class Action extends BaseClass implements ActionInterface {
@@ -134,32 +123,25 @@ public class Action extends BaseClass implements ActionInterface {
         return flag;
     }
 
-
-
     @Override
     public boolean JSClick(WebDriver driver, WebElement ele) {
-        boolean flag = false;
-        try {
-            // WebElement element = driver.findElement(locator);
-            JavascriptExecutor executor = (JavascriptExecutor) driver;
-            executor.executeScript("arguments[0].click();", ele);
-            // driver.executeAsyncScript("arguments[0].click();", element);
 
-            flag = true;
+        int attempts = 0;
+        int maxRetries = 5;
 
-        }
+        while (attempts < maxRetries) {
+            try {
+                JavascriptExecutor executor = (JavascriptExecutor) driver;
+                executor.executeScript("arguments[0].click();", ele);
 
-        catch (Exception e) {
-            throw e;
+                break;
 
-        } finally {
-            if (flag) {
-                System.out.println("Click Action is performed");
-            } else if (!flag) {
-                System.out.println("Click Action is not performed");
+            } catch (StaleElementReferenceException e) {
+                attempts++;
+
             }
         }
-        return flag;
+        return false;
     }
 
     @Override

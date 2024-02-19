@@ -59,6 +59,21 @@ public class BillingSpacesTest extends BaseClass {
     }
 
     @Test(priority = 3)
+    public void spaceValidationTest(){
+
+        loginPage = new LoginPage();
+
+        dashboardPage = loginPage.successLogin(prop.getProperty("userName"), prop.getProperty("password") );
+        devicePage = dashboardPage.navigateDevicePage();
+        addNewSpaceModelPage = devicePage.addBillingSpace();
+        addNewSpaceModelPage = addNewSpaceModelPage.UnSuccessAddNewBillingSpace("");
+        boolean spaceNameValidation = addNewSpaceModelPage.spaceNameValidation();
+        Assert.assertTrue(spaceNameValidation);
+        boolean billingAccNoValidation = addNewSpaceModelPage.accountNumberValidation();
+        Assert.assertTrue(billingAccNoValidation);
+    }
+
+    @Test(priority = 4)
     public void updateBillingSpaceTest(){
 
         loginPage = new LoginPage();

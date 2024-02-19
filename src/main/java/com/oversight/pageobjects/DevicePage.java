@@ -39,9 +39,6 @@ public class DevicePage extends BaseClass {
     @FindBy(xpath="//div[contains(text(),'Space Added Successfully')]")
     WebElement addSubSpaceSuccessToast;
 
-    @FindBy(xpath="//div[contains(text(),'Space name Already Exists')]")
-    WebElement addSubSpaceUnSuccessToast;
-
     @FindBy(xpath="//div[contains(text(),'Device Added Successfully')]")
     WebElement addDeviceSuccessToast;
 
@@ -64,11 +61,6 @@ public class DevicePage extends BaseClass {
 
     public boolean addSubSpaceSuccessToast(){
         return action.isDisplayed(driver, addSubSpaceSuccessToast);
-
-    }
-
-    public boolean addSubSpaceUnSuccessToast(){
-        return action.isDisplayed(driver, addSubSpaceUnSuccessToast);
 
     }
 

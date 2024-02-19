@@ -27,6 +27,12 @@ public class AddNewSpaceModelPage extends BaseClass {
     @FindBy(xpath="//div[contains(text(),'Space name Already Exists')]")
     WebElement addBillingSpaceUnSuccessToast;
 
+    @FindBy(xpath="//span[normalize-space()='Space name is required']")
+    WebElement spaceNameValidation;
+
+    @FindBy(xpath="//span[normalize-space()='Space name is required']")
+    WebElement accountNumberValidation;
+
     public DevicePage addNewBillingSpace(String billingSpaceName) throws InterruptedException {
 
         action.type(billingSpaceNameField, billingSpaceName);
@@ -47,6 +53,16 @@ public class AddNewSpaceModelPage extends BaseClass {
 
     public boolean addBillingSpaceUnSuccessToast(){
         return action.isDisplayed(driver, addBillingSpaceUnSuccessToast);
+
+    }
+
+    public boolean spaceNameValidation(){
+        return action.isDisplayed(driver, spaceNameValidation);
+
+    }
+
+    public boolean accountNumberValidation(){
+        return action.isDisplayed(driver, accountNumberValidation);
 
     }
 

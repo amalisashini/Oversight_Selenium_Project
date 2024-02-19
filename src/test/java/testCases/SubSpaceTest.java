@@ -53,9 +53,22 @@ public class SubSpaceTest extends BaseClass {
         dashboardPage = loginPage.successLogin(prop.getProperty("userName"), prop.getProperty("password") );
         devicePage = dashboardPage.navigateDevicePage();
         addSpacePage = devicePage.selectAddSpace();
-        addSpacePage = addSpacePage.addExistingSubSpace(spaceName);
-        boolean UnSuccessToast = devicePage.addSubSpaceUnSuccessToast();
+        addSpacePage = addSpacePage.addSubSpaceUnSuccess(spaceName);
+        boolean UnSuccessToast = addSpacePage.addSubSpaceUnSuccessToast();
         Assert.assertTrue(UnSuccessToast);
+    }
+
+    @Test(priority = 3)
+    public void addSubSpaceValidationTest(){
+
+        loginPage = new LoginPage();
+
+        dashboardPage = loginPage.successLogin(prop.getProperty("userName"), prop.getProperty("password") );
+        devicePage = dashboardPage.navigateDevicePage();
+        addSpacePage = devicePage.selectAddSpace();
+        addSpacePage = addSpacePage.addSubSpaceUnSuccess("");
+        boolean validation = addSpacePage.addSubSpaceValidation();
+        Assert.assertTrue(validation);
     }
 
 }

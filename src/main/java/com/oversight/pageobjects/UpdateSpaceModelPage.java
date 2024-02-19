@@ -2,6 +2,7 @@ package com.oversight.pageobjects;
 
 import com.oversight.actiondriver.Action;
 import com.oversight.base.BaseClass;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -23,6 +24,7 @@ public class UpdateSpaceModelPage extends BaseClass {
 
     public DevicePage updateNewBillingSpace(String billingSpaceName){
 
+        action.clearTextField(driver, (By) billingSpaceNameField);
         action.type(billingSpaceNameField, billingSpaceName);
         action.click(driver, confirmBtn);
         return new DevicePage();

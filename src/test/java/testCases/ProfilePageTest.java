@@ -79,10 +79,24 @@ public class ProfilePageTest extends BaseClass {
         dashboardPage = loginPage.successLogin(prop.getProperty("userName"), prop.getProperty("password"));
         profilePage = dashboardPage.navigateProfilePage();
         emailChangePage = profilePage.emailChange();
-        emailChangePage = emailChangePage.emailChangeWithExistingEmail(existEmail);
+        emailChangePage = emailChangePage.emailChangeValidation(existEmail);
         boolean validation = emailChangePage.changeWithExistEmailValidation();
         Assert.assertTrue(validation);
     }
+
+    @Test(priority = 5)
+    public void emailChangeValidationTest(){
+
+        loginPage = new LoginPage();
+
+        dashboardPage = loginPage.successLogin(prop.getProperty("userName"), prop.getProperty("password"));
+        profilePage = dashboardPage.navigateProfilePage();
+        emailChangePage = profilePage.emailChange();
+        emailChangePage = emailChangePage.emailChangeValidation("");
+        boolean validation = emailChangePage.changeEmailValidation();
+        Assert.assertTrue(validation);
+    }
+
 
 
 }

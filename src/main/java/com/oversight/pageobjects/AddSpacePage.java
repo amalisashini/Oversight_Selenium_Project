@@ -21,6 +21,12 @@ public class AddSpacePage extends BaseClass {
     @FindBy(css="div[class='d-block'] div[class='col-auto'] div[class='col-auto col']")
     WebElement confirmBtn;
 
+    @FindBy(xpath="//div[contains(text(),'Space name Already Exists')]")
+    WebElement addSubSpaceUnSuccessToast;
+
+    @FindBy(xpath="//span[normalize-space()='Space name is required']")
+    WebElement subSpaceValidation;
+
     public DevicePage addSubSpace(String spaceName){
 
         action.type(spaceNameField, spaceName);
@@ -29,11 +35,21 @@ public class AddSpacePage extends BaseClass {
 
     }
 
-    public AddSpacePage addExistingSubSpace(String spaceName){
+    public AddSpacePage addSubSpaceUnSuccess(String spaceName){
 
         action.type(spaceNameField, spaceName);
         action.click(driver, confirmBtn);
         return new AddSpacePage();
+
+    }
+
+    public boolean addSubSpaceUnSuccessToast(){
+        return action.isDisplayed(driver, addSubSpaceUnSuccessToast);
+
+    }
+
+    public boolean addSubSpaceValidation(){
+        return action.isDisplayed(driver, subSpaceValidation);
 
     }
 
