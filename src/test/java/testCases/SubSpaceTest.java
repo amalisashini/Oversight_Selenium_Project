@@ -2,10 +2,7 @@ package testCases;
 
 import com.oversight.base.BaseClass;
 import com.oversight.dataprovider.DataProviders;
-import com.oversight.pageobjects.AddSpacePage;
-import com.oversight.pageobjects.DashboardPage;
-import com.oversight.pageobjects.DevicePage;
-import com.oversight.pageobjects.LoginPage;
+import com.oversight.pageobjects.*;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -17,6 +14,7 @@ public class SubSpaceTest extends BaseClass {
     DashboardPage dashboardPage;
     DevicePage devicePage;
     AddSpacePage addSpacePage;
+    UpdateSubSpaceModelPage updateSubSpaceModelPage;
 
     @BeforeMethod
     public void setUp() {
@@ -67,6 +65,19 @@ public class SubSpaceTest extends BaseClass {
         devicePage = dashboardPage.navigateDevicePage();
         addSpacePage = devicePage.selectAddSpace();
         addSpacePage = addSpacePage.addSubSpaceUnSuccess("");
+        boolean validation = addSpacePage.addSubSpaceValidation();
+        Assert.assertTrue(validation);
+    }
+
+    @Test(priority = 4)
+    public void updateSubSpaceTest(){
+
+        loginPage = new LoginPage();
+
+        dashboardPage = loginPage.successLogin(prop.getProperty("userName"), prop.getProperty("password") );
+        devicePage = dashboardPage.navigateDevicePage();
+        updateSubSpaceModelPage = devicePage.selectUpdateSubSpace();
+        devicePage = updateSubSpaceModelPage.updateNewBillingSpace("new sub space");
         boolean validation = addSpacePage.addSubSpaceValidation();
         Assert.assertTrue(validation);
     }

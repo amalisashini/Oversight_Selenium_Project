@@ -6,10 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class AddNewSpaceModelPage extends BaseClass {
+public class AddBillingSpaceModelPage extends BaseClass {
 
     Action action = new Action();
-    public AddNewSpaceModelPage() {
+    public AddBillingSpaceModelPage() {
 
         PageFactory.initElements(driver,this);
 
@@ -42,12 +42,12 @@ public class AddNewSpaceModelPage extends BaseClass {
 
     }
 
-    public AddNewSpaceModelPage UnSuccessAddNewBillingSpace(String billingSpaceName){
+    public AddBillingSpaceModelPage UnSuccessAddNewBillingSpace(String billingSpaceName){
 
         action.type(billingSpaceNameField, billingSpaceName);
         action.selectDrop(driver, billingAccNumberDropDown);
         action.JSClick(driver, confirmBtn);
-        return new AddNewSpaceModelPage();
+        return new AddBillingSpaceModelPage();
 
     }
 

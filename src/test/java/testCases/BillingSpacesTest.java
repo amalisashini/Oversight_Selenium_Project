@@ -13,8 +13,8 @@ public class BillingSpacesTest extends BaseClass {
     LoginPage loginPage;
     DashboardPage dashboardPage;
     DevicePage devicePage;
-    AddNewSpaceModelPage addNewSpaceModelPage;
-    UpdateSpaceModelPage updateSpaceModelPage;
+    AddBillingSpaceModelPage addNewSpaceModelPage;
+    UpdateBillingSpaceModelPage updateSpaceModelPage;
 
     @BeforeMethod
     public void setUp() {

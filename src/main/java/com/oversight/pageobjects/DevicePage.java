@@ -27,6 +27,12 @@ public class DevicePage extends BaseClass {
     @FindBy(xpath="//div[contains(@class, 'app-drop-down_menu-container') and contains(@style, 'visibility: visible')]//li[contains(., 'Add Subspace')]")
     WebElement selectSpaceDropDownAddSubSpace;
 
+    @FindBy(css="div[id='space-dropdown-id-65bdd4f1fbe1d57f531e5a5e-65d1f9024384c42837859a01'] span[class='cursor-pointer material-symbols-outlined']")
+    WebElement selectSubSpaceDropDown;
+
+    @FindBy(xpath="//div[@class='app-drop-down_menu-container__PQYVS app-drop-down_show-menu__7WhUf app-drop-down_menu-top__nI8Au app-drop-down_menu-left__paQ1+']//div[@class='d-flex align-items-center'][normalize-space()='Edit Space']")
+    WebElement selectSubSpaceDropDownUpdateSubSpace;
+
     @FindBy(xpath="//div[contains(text(),'Add Device')]")
     WebElement addDeviceBtn;
 
@@ -42,10 +48,10 @@ public class DevicePage extends BaseClass {
     @FindBy(xpath="//div[contains(text(),'Device Added Successfully')]")
     WebElement addDeviceSuccessToast;
 
-    public AddNewSpaceModelPage addBillingSpace(){
+    public AddBillingSpaceModelPage addBillingSpace(){
 
         action.JSClick(driver, createBillingSpaceBtn);
-        return new AddNewSpaceModelPage();
+        return new AddBillingSpaceModelPage();
 
     }
 
@@ -84,11 +90,19 @@ public class DevicePage extends BaseClass {
 
     }
 
-    public UpdateSpaceModelPage UpdateBillingSpace(){
+    public UpdateBillingSpaceModelPage UpdateBillingSpace(){
 
         action.JSClick(driver, selectSpaceDropDown);
         action.JSClick(driver, selectSpaceDropDownEdit);
-        return new UpdateSpaceModelPage();
+        return new UpdateBillingSpaceModelPage();
+
+    }
+
+    public UpdateSubSpaceModelPage selectUpdateSubSpace(){
+
+        action.JSClick(driver, selectSubSpaceDropDown);
+        action.JSClick(driver, selectSubSpaceDropDownUpdateSubSpace);
+        return new UpdateSubSpaceModelPage();
 
     }
 
