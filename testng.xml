@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/User/Desktop/Oversight_Selenium_Project">
+        <classes>
+            <class name="testCases.LoginPageTest"/>
+            <class name="testCases.BillingAccountNumberTest"/>
+            <class name="testCases.BillingSpacesTest"/>
+            <class name="testCases.SubSpaceTest"/>
+            <class name="testCases.DeviceTest"/>
+            <class name="testCases.ControllerPageTest"/>
+            <class name="testCases.SchedulePageTest"/>
+            <class name="testCases.ProfilePageTest"/>
+            <class name="testCases.RegisterPageTest"/>
+</classes>
+</test>
+</suite>
